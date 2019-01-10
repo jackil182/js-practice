@@ -210,17 +210,12 @@ console.log(getAllUniqueSkills(users));
 //     .sort((a, b) => a.friends.length - b.friends.length)
 //     .map(x => x.name)
 
-// const getUserNamesSortedByFriendsCount = arr => 
-//     arr
-//     .map( x => ({name: x.name, friends: x.friends}) )
-//     .sort((a, b) => a.friends.length - b.friends.length)
-//     .map(x => x.name)
-
 const getUserNamesSortedByFriendsCount = arr => 
     arr
     .map( x => ({name: x.name, friends: x.friends}) )
     .sort((a, b) => a.friends.length - b.friends.length)
     .map(x => x.name)
+
 
 console.log(getUserNamesSortedByFriendsCount(users)); 
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]

@@ -113,15 +113,15 @@
 //================================================================
 
 
-/*      
-  Напишите функцию setGuestState(guests, period), где guests - массив гостей, period - кол-во дней после которого считается что гость не активен.
+// /*      
+//   Напишите функцию setGuestState(guests, period), где guests - массив гостей, period - кол-во дней после которого считается что гость не активен.
     
-  Если значение поля inactiveDays болше чем period, поставить для isActive значение false.
+//   Если значение поля inactiveDays болше чем period, поставить для isActive значение false.
     
-  Если же значение inactiveDays меньше чем period, поставить для isActive значение true
+//   Если же значение inactiveDays меньше чем period, поставить для isActive значение true
   
-  PS: обязательно используйте функциональные методы массивов, никаких for!
-*/
+//   PS: обязательно используйте функциональные методы массивов, никаких for!
+// */
 
 // const users = [
 //     { name: 'Mango', inactiveDays: 15, isActive: true },
@@ -150,13 +150,13 @@
 //===========================================================
 
 
-/*
-  Напишите функию getActiveGuests(guests), принимающую один параметр guests - массив объектов гостей. 
+// /*
+//   Напишите функию getActiveGuests(guests), принимающую один параметр guests - массив объектов гостей. 
   
-  Функция должна возвращать массив объектов гостей, значение поля isActive которых true.
+//   Функция должна возвращать массив объектов гостей, значение поля isActive которых true.
          
-  PS: обязательно используйте функциональные методы массивов, никаких for!
-*/
+//   PS: обязательно используйте функциональные методы массивов, никаких for!
+// */
 
 // const guests = [
 //     { name: "Mango", age: 20, isActive: true },
@@ -174,13 +174,13 @@
 //===========================================================
 
 
-/*      
-  Напишите функцию getGuestsOlderThan(guests, age), где guests - массив объектов гостей, age - предел возраста для сортировки. 
+// /*      
+//   Напишите функцию getGuestsOlderThan(guests, age), где guests - массив объектов гостей, age - предел возраста для сортировки. 
   
-  Функция возвращает массив объектов значение свойства age которых больше чем параметр age.
+//   Функция возвращает массив объектов значение свойства age которых больше чем параметр age.
   
-  PS: обязательно используйте функциональные методы массивов, никаких for!
-*/
+//   PS: обязательно используйте функциональные методы массивов, никаких for!
+// */
 
 // const guests = [
 //     { name: "Mango", age: 20, isActive: true },
@@ -202,13 +202,13 @@
 //===========================================================
 
 
-/*
-  Напишите функию getGuestById(guests, id), принимающую guests - массив объектов гостей, id - идентификатор (число). 
+// /*
+//   Напишите функию getGuestById(guests, id), принимающую guests - массив объектов гостей, id - идентификатор (число). 
   
-  Функция должна возвращать объект гостя с совпадающим id.
+//   Функция должна возвращать объект гостя с совпадающим id.
   
-  PS: обязательно используйте функциональные методы массивов, никаких for!
-*/
+//   PS: обязательно используйте функциональные методы массивов, никаких for!
+// */
 
 // const guests = [
 //     { id: 1, name: 'Mango', age: 20 },
@@ -236,9 +236,9 @@
 //===========================================================
 
 
-/*
-  Используя метод reduce, посчитайте сумму всех значений свойств объекта order.
-*/ 
+// /*
+//   Используя метод reduce, посчитайте сумму всех значений свойств объекта order.
+// */ 
 // const order = {
 //     bread: 10,
 //     apples: 25,
@@ -268,15 +268,15 @@
 //===========================================================
 
 
-/*
-  Напишите функцию getTotalPrice(products, order), где 
-  products - объект со свойствами "имя продукта":"цена за единицу", 
-  order - объект со свойствами "имя продукта":"количество единиц".
+// /*
+//   Напишите функцию getTotalPrice(products, order), где 
+//   products - объект со свойствами "имя продукта":"цена за единицу", 
+//   order - объект со свойствами "имя продукта":"количество единиц".
   
-  Функция возвращает общую сумму стоимости всех продуктов заказа.
+//   Функция возвращает общую сумму стоимости всех продуктов заказа.
   
-  PS: используйте метод reduce
-*/
+//   PS: используйте метод reduce
+// */
 
 // const products = {
 //     bread: 10,
@@ -322,13 +322,13 @@
 //===========================================================
 
 
-/*     
-  Напишите функию allGuestsActive(guests), принимающую один параметр guests - массив объектов гостей. 
+// /*     
+//   Напишите функию allGuestsActive(guests), принимающую один параметр guests - массив объектов гостей. 
   
-  Функция должна возвращать true если значение поля isActive всех объектов true, в противном случае false.
+//   Функция должна возвращать true если значение поля isActive всех объектов true, в противном случае false.
   
-  PS: используйте метод every или some, никаких for!
-*/
+//   PS: используйте метод every или some, никаких for!
+// */
 
 // const guestsA = [
 //     { name: "Mango", isActive: true },
@@ -353,3 +353,273 @@
 //===========================================================
 
 
+// /*
+//   Создать функцию-конструктор Account, которая добавляет будущему
+//   объекту поля login, email и friendsCount. 
+  
+//   В prototype функции-конструктора добавить метод getAccountInfo(), 
+//   который выводит в консоль значения полей login, email и friendsCount. 
+  
+//   Обратите внимание, метод будет всего один, в поле prototype функции-конструктора, 
+//   а использовать его смогут все экземпляры, по ссылке.
+  
+//   Создать несколько экземпляров с разными значениями свойств, вывести их в консоль.
+// */
+
+
+// function Account(login, email, friendsCount) {
+//   this.login = login;
+//   this.email = email;
+//   this.friendsCount = friendsCount;
+// }
+
+// Account.prototype.getAccountInfo = function () {
+//   console.log(`
+//   login: ${this.login}
+//   email: ${this.email}
+//   friendscount ${this.friendsCount}`);
+// }
+
+// const naz = new Account('Naz', 'naz@email.com', 5);
+// const ana = new Account('Ana', 'ana@email.com', 50);
+
+// naz.getAccountInfo();
+// ana.getAccountInfo();
+
+
+//===========================================================
+
+
+// /*
+//   Напишите ES6 класс StringBuilder.
+  
+//   На вход (в конструкторе) он получает один параметр string - строку, которую записывает в поле value.
+  
+//   Добавьте классу следующие методы:
+//     - getValue() - выводит в консоль текущее значение поля value
+  
+//     - append(str) - получает парметр str - строку и добавляет 
+//       ее в конец значения поля value
+    
+//     - prepend(str) - получает парметр str - строку и добавляет 
+//       ее в начало значения поля value
+  
+//     - pad(str) - получает парметр str - строку и добавляет 
+//       ее в начало и в конец значения поля value
+// */
+
+// class StringBuilder {
+//   constructor (string) {
+//     this.value = string;
+//   }
+
+//   showValue() {
+//     console.log(this.value);
+//   }
+
+//   append(str) {
+//     this.value = this.value.concat(str);
+//   }
+
+//   prepend(str) {
+//     this.value = str.concat(this.value);
+//   }
+
+//   pad(str) {
+//     this.value = str.concat(this.value).concat(str);
+//   }
+// };
+
+// const stringBuilder = new StringBuilder('.');
+
+// stringBuilder.append('^'); 
+// stringBuilder.showValue(); // '.^'
+
+// stringBuilder.prepend('^'); 
+// stringBuilder.showValue(); // '^.^'
+
+// stringBuilder.pad('='); 
+// stringBuilder.showValue(); // '=^.^='
+
+
+//===========================================================
+
+  
+// /*Создайте класс Car с указанными полями и методами.
+// */
+
+// class Car {
+//   constructor(maxSpeed) {
+//     /*
+//       Добавьте свойства:
+//         - speed - для отслеживания текущей скорости, изначально 0.
+//         - maxSpeed - для хранения максимальной скорости 
+//         - running - для отслеживания заведен ли автомобиль, 
+//           возможные значения true или false. Изначально false.
+//         - distance - содержит общий киллометраж, изначально с 0
+//     */
+//     this.speed = 0;
+//     this.maxSpeed = maxSpeed;
+//     this.running = false;
+//     this.distance = 0;
+//   }
+
+//   turnOn() {
+//     // Добавьте код для того чтобы завести автомобиль
+//     // Просто записывает в свойство running значание true
+//     this.running = true;
+//   }
+
+//   turnOff() {
+//     // Добавьте код для того чтобы заглушить автомобиль
+//     // Просто записывает в свойство running значание false
+//     this.running = false;
+//     this.speed = 0;
+//   }
+  
+//   accelerate(spd) {
+//     // Записывает в поле speed полученное значение, при условии что
+//     // оно не больше чем значение свойства maxSpeed
+//     spd <= this.maxSpeed && this.running ? this.speed = spd : this.speed;
+//   }
+  
+//   decelerate(spd) {
+//     // Записывает в поле speed полученное значение, при условии что
+//     // оно не больше чем значение свойства maxSpeed и не меньше нуля
+//     spd <= this.maxSpeed && spd >= 0 && this.running ? this.speed = spd : this.speed;
+//   }
+
+//   drive(hours) {
+//     // Добавляет в поле distance киллометраж (hours умноженное на значение поля speed),
+//     // но только в том случае если машина заведена!
+//     this.running ? this.distance = hours * this.speed : this.distance;
+//   }
+// }
+
+// const kia = new Car(180);
+// // console.log(kia);
+
+// kia.turnOn();
+// console.log('turned on', kia);
+
+// // kia.turnOff();
+// // console.log('turned off', kia);
+
+// kia.accelerate(140);
+// console.log('accelerated', kia);
+
+// kia.decelerate(110);
+// console.log('decelerated', kia);
+
+// kia.drive(1.2);
+// console.log('traveled distance', kia);
+
+// kia.turnOff();
+// console.log('turned off', kia);
+
+
+//===========================================================
+
+
+// /*
+//   Добавьте к классу Car из предыдущего задания статический метод getSpecs, который получает объект-машину как аргумент и выводит в консоль значения полей maxSpeed, running и distance.
+  
+//   Использование будет выглядеть следующим образом:
+  
+//   const someCar = new Car(100);
+//   someCar.turnOn();
+//   someCar.drive(2);
+  
+//   Car.getSpecs(someCar); // maxSpeed: 100, running: true, distance: 200
+// */
+
+// class Car {
+//   constructor(maxSpeed) {
+//     this.maxSpeed = maxSpeed;
+//     this.speed = 0;
+//     this.running = false;
+//     this.distance = 0;
+//   }
+
+//   turnOn() {
+//     this.running = true;
+//   }
+
+//   turnOff() {
+//     this.running = false;
+//     this.speed = 0;
+//   }
+  
+//   accelerate(spd) {
+//     spd <= this.maxSpeed && this.running ? this.speed = spd : this.speed;
+//   }
+  
+//   decelerate(spd) {
+//     spd <= this.maxSpeed && spd >= 0 && this.running ? this.speed = spd : this.speed;
+//   }
+
+//   drive(hours) {
+//     this.running ? this.distance = hours * this.speed : this.distance;
+//   }
+
+//   static getSpecs(car) {
+//     console.log(`
+//     maxSpeed: ${car.maxSpeed},
+//     running: ${car.running},
+//     distance: ${car.distance}`
+//     );
+//   }
+// }
+
+//   const someCar = new Car(100);
+  
+//   someCar.turnOn();
+//   someCar.accelerate(100);
+//   someCar.drive(2);
+//   console.log(someCar);
+
+//   Car.getSpecs(someCar);
+
+
+//===========================================================
+
+
+// /*
+//   Добавьте классу Car свойство value - цена автомобиля.
+  
+//   Добавьте классу Car использование геттеров и сеттеров для свойства value.
+  
+//   Геттер вернет текущей значение поля this._value
+//   Сеттер запишет в поле this._value то что ему присвоят
+  
+//   PS: имя геттера и сеттера не может совпадать с полем, поэтому используйте
+//     не this.value а this._value
+    
+//   Использование выглядит следующим образом:
+  
+//   const myCar = new Car(50, 2000);
+  
+//   myCar.value; // 2000
+//   myCar.value = 4000;
+//   myCar.value; // 4000
+// */
+
+// class Car {
+//   constructor(maxSpeed, value) {
+//     this.maxSpeed = maxSpeed;
+//     this._value = value;
+//   }
+//   get value () {
+//     return this._value;
+//   }
+
+//   set value (value) {
+//     return this._value = value;
+//   }
+// }
+
+// const myCar = new Car(50, 2000);
+  
+// console.log('value: ', myCar.value); // 2000
+// myCar.value = 4000;
+// console.log('value: ', myCar.value); // 4000
