@@ -813,7 +813,7 @@
 
 
 // /*
-//   Создайте функцию createMovieCard(), которая создает и возвращает DOM-узел карточки кинофильма.
+//   Создайте функцию createMoviMovieCard(), которая создает и возвращает DOM-узел карточки кинофильма.
 //   Разметка с классами есть на вкладке HTML. Стили на вкладке CSS.
 //   Используйте createElement для создания узлов. Добавьте классы и атрибуты.
 // */
@@ -911,74 +911,399 @@
 //===========================================================
 
 
-/*
-  В HTML-документе уже есть тег с id="root" (вкладка HTML)
+// /*
+//   В HTML-документе уже есть тег с id="root" (вкладка HTML)
   
-  Создайте функцию createBoxes(num), которая принимает 1 параметр num - число.
+//   Создайте функцию createBoxes(num), которая принимает 1 параметр num - число.
   
-  Функция создает столько div, сколько указано в num и возвращает их в одном
-  общем контейнере. После чего необходимо повесить результат работы функции
-  в div с id="#root"
+//   Функция создает столько div, сколько указано в num и возвращает их в одном
+//   общем контейнере. После чего необходимо повесить результат работы функции
+//   в div с id="#root"
   
-  Каждый div:
-    - Имеет случайный rgb цвет фона
-    - Размеры самого первого div - 30px на 30px.
-    - Каждый следующий div после первого, должен быть шире и выше предыдущего
-      на 10px
-*/
+//   Каждый div:
+//     - Имеет случайный rgb цвет фона
+//     - Размеры самого первого div - 30px на 30px.
+//     - Каждый следующий div после первого, должен быть шире и выше предыдущего
+//       на 10px
+// */
 
-const root = document.getElementById('root');
-// console.log(root);
+// const root = document.getElementById('root');
+// // console.log(root);
 
-let boxSize = { height: 30, width: 30, };
-const addedBoxHeight = 10;
-const addedBoxWidth = 10;
-const boxes = [];
+// let boxSize = { height: 30, width: 30, };
+// const addedBoxHeight = 10;
+// const addedBoxWidth = 10;
+// const boxes = [];
 
-function createBoxes(num) {
-    const box = document.createElement('div');
+// function createBoxes(num) {
+//     const box = document.createElement('div');
 
-    let i = 1;
-    do {
-        const clonedBox = box.cloneNode(true);
+//     let i = 1;
+//     do {
+//         const clonedBox = box.cloneNode(true);
 
-        clonedBox.classList.add(`box${i}`);
+//         clonedBox.classList.add(`box${i}`);
 
-        clonedBox.style.backgroundColor = getRandomColor();
-        clonedBox.style.height = boxSize.height + 'px';
-        clonedBox.style.width = boxSize.width + 'px';
-        clonedBox.style.marginBottom = '10px';
+//         clonedBox.style.backgroundColor = getRandomColor();
+//         clonedBox.style.height = boxSize.height + 'px';
+//         clonedBox.style.width = boxSize.width + 'px';
+//         clonedBox.style.marginBottom = '10px';
 
-        boxes.push(clonedBox);
+//         boxes.push(clonedBox);
         
-        changeBoxSize(addedBoxHeight, addedBoxWidth);
+//         changeBoxSize(addedBoxHeight, addedBoxWidth);
 
-        i++;
-    }
-    while (i <= num);
-    
-    root.append(...boxes);
-}
+//         i++;
+//     }
+//     while (i <= num);
+
+//     root.append(...boxes);
+// }
 
 
-function getRandomColor() {
-    const colorChars = '0123456789abcdef';
-    let color = '#';
+// function getRandomColor() {
+//     const colorChars = '0123456789abcdef';
+//     let color = '#';
 
-    for (let i = 0; i < 6; i +=1) {
-        color += colorChars[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+//     for (let i = 0; i < 6; i +=1) {
+//         color += colorChars[Math.floor(Math.random() * 16)];
+//     }
+//     return color;
+// }
 
-function changeBoxSize(height, width) {
-    boxSize.height += height;    
-    boxSize.width += width;
+// function changeBoxSize(height, width) {
+//     boxSize.height += height;    
+//     boxSize.width += width;
 
-    return boxSize;
-}
+//     return boxSize;
+// }
 
-createBoxes(3);
+// createBoxes(5);
 // console.log(getRandomColor());
 
 
+//===========================================================
+
+
+// /*
+//   Напишите скрипт который реализует следующий функционал.
+  
+//   Есть кнопка с классом button, текст которой отображает 
+//   кол-во раз которое по ней кликнули, обновляется при каждом клике.
+// */
+
+// const button = document.querySelector('button');
+// console.log(button);
+
+// button.addEventListener('click', countClicks);
+
+// function countClicks(event) {
+//     this.textContent = Number(this.textContent) + 1;
+// }
+
+
+//===========================================================
+
+
+// /*
+//   Даны 2 инпута, абзац и кнопка. По нажатию на кнопку 
+//   получите числа которые бьудут введены в инпуты и запишите их сумму в span.result.
+// */
+
+// const button = document.querySelector('.container > button');
+// const inputs = document.querySelectorAll('input');
+// const result = document.querySelector('.result');
+
+// button.addEventListener('click', handleButtonClick);
+
+// function handleButtonClick(event) {
+//     let sum = 0;
+//     inputs.forEach(input => sum += Number(input.value));
+//     result.textContent = sum;
+//     // console.log(result);   
+//     sum = 0;
+// }
+
+
+//===========================================================
+
+
+// /*
+//   Есть счетчик (спан) и кнопки +1, -1, которые должны увеличивать и уменьшать значение счетчика на 1. 
+  
+//   - Создайте класс Counter, который хранит одно поле value - текущее значение счетчика
+//   - Класс принимает один параметр - onChange, функцию для обновления интерфейса при изменении счетчика
+//   - Добавьте классу методы increment и decrement для увеличения и ументшение значения счетчика
+//   - Привяжите вызовы методов и значение счетчика к разметке
+// */
+
+// const val = document.querySelector('.value');
+// const buttons = document.querySelectorAll('.btn');
+
+// buttons.forEach(btn => {
+//     if (btn.getAttribute('data-action') === 'sub') {
+//         btn.classList.add('js-btn--sub');                
+//     } else if (btn.getAttribute('data-action') === 'add') {
+//         btn.classList.add('js-btn--add');                
+//     }    
+// });
+
+// const btnSub = document.querySelector('.js-btn--sub');
+// const btnAdd = document.querySelector('.js-btn--add');
+
+// function onChange() {
+//     btnSub.addEventListener('click', () => {
+//         val.textContent--;
+//     });
+//     btnAdd.addEventListener('click', () => {
+//         val.textContent++;
+//     });
+// }
+
+// class Counter {
+//     constructor(onChange){
+//         this.value = val.textContent; 
+//     }
+
+//     // increment(event) {
+//     //     this.value++;
+//     // }
+
+//     // decrement() {
+//     //     this.value--;
+//     // }
+// }
+
+// const a = new Counter(onChange());
+
+
+//===========================================================
+
+
+// /*
+//   Есть форма с набором радиокнопок. Пользователь выбирает вариант ответа, после чего нажимает кнопку "Submit" и происходит отправка формы.
+  
+//   При отправке формы:
+//     - не должна перезагружаться страница
+//     - необходимо получить выбранную опцию и вывести в параграф с классом .result
+// */
+
+// const form = document.querySelector('.question-form');
+// const resultParagrapg = document.querySelector('.result');
+// const resultText = resultParagrapg.textContent;
+
+// const submitBtn = document.querySelector('.btn[type="submit"]');
+
+// const inputs = document.querySelectorAll('input[type="radio"]');
+// const labels = document.querySelectorAll('.options > label');
+
+// let selectedLabel = '';
+// const labelTitles = [];
+
+// submitBtn.addEventListener('click', handleSubmitClick);
+// function handleSubmitClick(event) {
+//     event.preventDefault(); // avoid page refresh after form submit
+//     resultParagrapg.textContent += selectedLabel;
+//     form.reset(); //UNclick the radio button
+// }
+
+// labels.forEach(label => labelTitles.push(label.textContent.trim()));
+// inputs.forEach(input => input.addEventListener('click', handleRadioClick));
+
+// function handleRadioClick(event) {
+//     const idx = Array.from(inputs).indexOf(this);
+//     selectedLabel = labelTitles[idx];
+
+//     //reset the resultParagrapg.textContent after radio button click to avoid concatenation
+//     resultParagrapg.textContent = resultText;
+// }
+
+
+//===========================================================
+
+
+// /*
+//   Дан список изображений. Сделайте так, чтобы по клику на картинку 
+//   алертом выводился ее src. Обязательно используйте делегирование событий.
+// */
+
+// const gallery = document.querySelector('.images');
+
+// gallery.addEventListener('click', showImgSrc);
+
+// // const images = gallery.querySelectorAll('img');
+// // images.forEach(image => {
+// //     image.addEventListener('click', showImgSrc);
+// // } )
+
+// function showImgSrc(event) {
+//     alert(event.target.src);
+// }
+
+
+// //===========================================================
+
+
+// /*
+//   Дан ul, а внутри него произвольное количество li с текстом и кнопкой. 
+//   Сделайте так, чтобы по нажатию на кнопку, удалялся тот li в котором
+//   она находится. Обязательно используйте делегирование событий.
+// */
+
+// const list = document.querySelector('.list');
+
+// list.addEventListener('click', deleteListItem);
+
+// function deleteListItem(event) {
+//     if (event.target.nodeName !== 'BUTTON') return;
+//     event.target.parentElement.remove();    
+// }
+
+
+// //===========================================================
+
+
+// /*
+//   Дан набор инпутов. Сделайте так, чтобы при потере фокуса все 
+//   инпуты проверяли свое содержимое на правильное количество символов. 
+  
+//   - Сколько символов должно быть в инпуте, указывается в атрибуте data-length. 
+//   - Если введено подходящее количество, то outline инпута становится зеленым, если неправильное - красным. Для добавления стилей, на вкладке CSS есть стили valid и invalid
+// */
+
+// const inputList = document.querySelector('.input-list');
+
+// inputList.addEventListener('change', checkInputValidity);
+
+// function checkInputValidity({target}) {    
+//     if(target.value.length  == target.dataset.length) {
+//         target.classList.add('valid');
+//         target.classList.remove('invalid')
+//     } else {
+//     target.classList.add('invalid');
+//     target.classList.remove('valid')
+//     }
+// }
+
+
+// //===========================================================
+
+
+// /*
+//   Напишите скрипт который:
+//     - При фокусе текстового поля, в p.message рендерит строку "Input is in focus!"
+//     - При наборе текста в инпуте (событие input), текущее его значение должно отображаться в p.input-value 
+// */
+
+// const message = document.querySelector('.message');
+// const inputText = document.querySelector('.input');
+// const inputValue = document.querySelector('.input-value');
+// const inputValueOrigianlText = inputValue.textContent;
+
+// const regE = /[a-zA-Z0-9\t\n ./<>?;:"'`!@#$%^&*()\[\]{}_+=|\\-]/;
+
+// inputText.addEventListener('focus', renderMessage);
+// inputText.addEventListener('blur', removeMessage);
+// inputText.addEventListener('keyup', showInputValue);
+
+// function renderMessage() {
+//     message.textContent = "Input is in focus!"
+// }
+
+// function removeMessage() {
+//     message.textContent = ""
+// }
+
+// function showInputValue({target}){
+//     if(regE.test(target.value)) {
+//         inputValue.textContent = inputValueOrigianlText + target.value;
+//     }
+//     if(target.value.length == 0) {
+//         inputValue.textContent = inputValueOrigianlText;
+//     }
+// }
+
+
+// //===========================================================
+
+
+// /*
+//   На вкладках HTML и CSS уже готовая верстка модального окна.
+//   По умолчанию модальное окно скрыто классом modal-hidden.
+  
+//   Напишите скрипт который реализует следующее поведение:
+//   - При клике на кнопке с надписью "Open Modal", модальное окно с классом modal, должно появляться. Для этого необходимо убрать класс modal-hidden. 
+//     Для выбора модального модального окна используйте класс js-modal-backdrop
+ 
+//   - При открытом модальном окне, клик на кнопку с крестиком (data-action="close-modal") или на серый фон с прозрачностью (js-modal-backdrop), модальное окно должно закрываться.
+// */
+
+// document.addEventListener('DOMContentLoaded', () => {
+   
+//     const modalWindow = document.querySelector('.modal');
+//     const btnShowModal = document.querySelector('[data-action="open-modal"]');
+//     const btnCloseModal = document.querySelector('[data-action="close-modal"]');    
+    
+//     modalWindow.addEventListener('click', handleBackdropClick);
+//     btnShowModal.addEventListener('click', showModal);
+//     btnCloseModal.addEventListener('click', hideModal);
+
+//     function handleBackdropClick({target}) {
+//         if (this !== target) return;
+//         hideModal();
+//     }
+    
+//     function showModal(){
+//         modalWindow.classList.remove('modal-hidden');
+//         modalWindow.classList.add('js-modal-backdrop');
+//     }
+
+//     function hideModal(){
+//         modalWindow.classList.add('modal-hidden');
+//          modalWindow.classList.remove('js-modal-backdrop');
+//     }
+// })
+
+
+// //===========================================================
+
+
+/*
+//   Ознакомьтесь с HTML и CSS.
+  
+//   Есть меню навигации, необходимо написать скрипт, который
+//   при клике на пункт меню добавит ему класс active,
+//   таким образом выделив текущую (активную) ссылку,
+//   при этом убрав его у всех остальных элементов меню.
+  
+//   Пунктов меню может быть произвольное количество, используйте
+//   прием делегирование событий. Учтите клик по самому ul, его
+//   необходимо игнорировать.
+  
+//   При клике по ссылкам не должна перезагружаться страница!
+// */
+
+// const menu = document.querySelector('.js-menu');
+// menu.addEventListener('click', handleItemClick);
+
+// const links = document.querySelectorAll('.menu-link');
+
+// function handleItemClick({target}) {
+//     event.preventDefault(); //prevents page refresh after link click
+
+//     //make sure the link is the target, and not it's container
+//     if(target.nodeName !== 'A') return;
+
+//     setActiveLink(links, target);
+// }
+
+// function setActiveLink(linksCollection, targetElement) {
+//     //add class to active link, remove class from the rest
+//     linksCollection.forEach(link => {
+//         if(link !== targetElement){
+//             link.classList.remove('active');
+//         } else {
+//             link.classList.add('active');
+//         }
+//     })
+// }
