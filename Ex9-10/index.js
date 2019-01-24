@@ -303,3 +303,259 @@
 //===================================================================
 
  
+// /*
+//   Написать функцию fetchCountryData, которая использует API_URL + текущее значение input для составления запроса.
+  
+//   Формат полного url таков: https://restcountries.eu/rest/v2/name/имя-страны
+    
+//   С помощью fetch сделать запрос по составленому адресу. 
+//   Обязательно обработать вариант с ошибкой запроса используя catch. 
+  
+//   Результат запроса вывести в поле result в формате:
+//     Country name: имя страны
+//     Capital: столица
+//     Main currency: название денежной единицы
+//     Flag: флаг страны
+  
+//   Все необходимые данные есть в ответе от API.
+  
+//   PS: при отправке формы перезагружается страница, решите эту задачу вспомнив о том, как остановить поведение по умолчанию.
+// */
+
+// const input = document.querySelector("input");
+// const form = document.querySelector(".search-form");
+// const result = document.querySelector(".result");
+
+// const countryName = document.querySelector('.country__name');
+// const countryCapital = document.querySelector('.country__capital');
+// const countryCurrency = document.querySelector('.country__currency');
+// const countryFlag = document.querySelector('.flag__img');
+
+// const API_URL = "https://restcountries.eu/rest/v2/name/";
+
+// form.addEventListener("submit", fetchCountryData);
+
+// /*
+//   @param {FormEvent} evt
+// */
+// function fetchCountryData(evt) {
+//     evt.preventDefault();
+//     const inputValue = input.value;
+  
+//     fetch(`https://restcountries.eu/rest/v2/name/${inputValue}`)
+//     .then(response => response.json())
+//     .then(data =>{ 
+//         let destr = {...data[0]};
+//         countryName.textContent = `Country name: ${destr.name}`;
+//         countryCapital.textContent = `Capital: ${destr.capital}`;
+//         countryCurrency.textContent = `Main currency: ${destr.currencies[0].name}`;
+//         countryFlag.setAttribute('src', `${destr.flag}`);
+//         })
+//     .catch(err => console.log(err));
+  
+//   evt.target.reset();
+// }
+
+
+//=======================================================
+
+
+// /*
+//   Написать функцию fetchUserData, которая использует API_URL + текущее значение input для составления запроса.
+  
+//   Формат полного url таков: https://api.github.com/users/имя-пользователя
+    
+//   Документация по Git API: https://developer.github.com/v3/
+    
+//   С помощью fetch сделать запрос по составленому адресу. 
+//   Обязательно обработать вариант с ошибкой запроса используя catch. 
+  
+//   Результат запроса вывести в поле result в формате:
+//     Avatar: аватартка 
+//     Username: логин
+//     Bio: описание профиля
+//     Public repos: кол-во открытых репозиториев
+  
+//   Все необходимые данные есть в ответе от API.
+// */
+
+// const input = document.querySelector("input");
+// const form = document.querySelector(".search-form");
+// const result = document.querySelector(".result");
+
+// const avatar = document.querySelector('.avatar');
+// const userName = document.querySelector('.user__name');
+// const userBio = document.querySelector('.user__bio');
+// const userRepos = document.querySelector('.user__repos');
+
+// form.addEventListener("submit", fetchUserData);
+
+// /*
+//   @param {FormEvent} evt
+// */
+// function fetchUserData(evt) {
+//     evt.preventDefault();
+
+//     const inputValue = input.value;
+//     const API_URL = `https://api.github.com/users/${inputValue}`;
+
+//     fetch(API_URL)
+//         .then(res => res.json())
+//         .then(data => {
+//             avatar.setAttribute('src', data.avatar_url);
+//             userName.textContent = `User login: ${data.login}`;
+//             userBio.textContent = `User bio: ${data.bio}`;
+//             userRepos.textContent = `User oper repos: ${data.public_repos}`;
+//             console.log(data);
+//         })
+//         .catch(err => console.log(err));
+
+//     evt.target.reset();
+// }
+
+
+//=======================================================
+
+
+// /*
+//   Документация API: https://jsonplaceholder.typicode.com/
+
+//   Просмотр всех пользователей: https://jsonplaceholder.typicode.com/users/ 
+
+//   Написать функцию fetchUsers, которая посылает get запрос.
+//   Результатом fetch будет массив объектов.
+  
+//   В таблицу .user-table добавить строки для каждого пользователя.
+//   Каждая строка состоит из 5-ти столбцов указанного формата.
+//   Кол-во строк будет такое как и кол-во объектов пользователей в ответе.
+  
+//     Имя | Почта | Город | Вебсайт | Компания
+//     Имя | Почта | Город | Вебсайт | Компания
+//     и так далее для каждого пользователя...
+// */
+
+// const form = document.querySelector(".search-form");
+// const userTable = document.querySelector(".user-table");
+
+// const tableHead = document.createElement('thead');
+// const row = document.createElement('tr');
+// const cell = document.createElement('td');
+
+// form.addEventListener("submit", fetchUsers);
+
+// /*
+//   @param {FormEvent} evt
+// */
+// function fetchUsers(evt) {
+//     const USER_API = `https://jsonplaceholder.typicode.com/users/`;
+    
+//     evt.preventDefault();
+
+//   fetch(USER_API).then(res => {
+//     if (res.ok) return res.json();
+
+//     throw new Error('error', response.statusText)
+//     })
+//     .then(data => createTable(data))
+//     .catch(err => console.log(err));
+
+// }
+
+// function createTable(dataArr) {
+//     createHeadRow();
+//     createTableRowWithCells(dataArr);
+// }
+
+// function createHeadRow() {
+//     const headRow = row.cloneNode(true);
+    
+//     const thName = cell.cloneNode(true);
+//     thName.textContent = 'User Name';
+//     const thZip = cell.cloneNode(true);
+//     thZip.textContent = 'User Zip Code';
+//     const thCity = cell.cloneNode(true);
+//     thCity.textContent = 'User City';
+//     const thSite = cell.cloneNode(true);
+//     thSite.textContent = 'User Web-site';
+//     const thCompany = cell.cloneNode(true);
+//     thCompany.textContent = 'User Company';
+
+//     headRow.append(thName, thZip, thCity, thSite, thCompany)
+//     tableHead.append(headRow);
+//     userTable.append(tableHead);
+// }
+
+// function createTableRowWithCells(dataArr) {
+//     dataArr.forEach(el => {
+//         const tRow = row.cloneNode(true);
+//         const tdName = cell.cloneNode(true);
+//         const tdZip = cell.cloneNode(true);
+//         const tdCity = cell.cloneNode(true);
+//         const tdSite = cell.cloneNode(true);
+//         const tdCompany = cell.cloneNode(true);
+
+//         tdName.textContent = el.name;
+//         tdZip.textContent = el.address.zipcode;
+//         tdCity.textContent = el.address.city;
+//         tdSite.textContent = el.website;
+//         tdCompany.textContent = el.company.name;
+//         tRow.append(tdName, tdZip, tdCity, tdSite, tdCompany);
+//         userTable.append(tRow);
+//     })
+// }
+
+
+//======================================================
+
+
+// /*
+//   Документация API: https://jsonplaceholder.typicode.com/
+
+//   Написать функцию getUserById, которая посылает запрос на получение информации о пользоватеьте с id (число) введенным в input. Не забывайте что значение input это строка.
+ 
+//   Объект что придет в ответе используйте для вывода информации о пользователе в элементе .result
+  
+//   Если пользователя с таким идентификатором в базе данных нет, в элемент .result вывести строку "Ошибка! Пользователя с таким id не существует"
+// */
+
+// const input = document.querySelector("input");
+// const form = document.querySelector(".search-form");
+// const result = document.querySelector(".result");
+
+// const paragraph = document.createElement('p');
+
+// form.addEventListener("submit", getUserById);
+
+// function getUserById(evt) {
+//     const inputValue = Number(input.value);
+//     const API_URL = `https://jsonplaceholder.typicode.com/users/${inputValue}`;
+
+//     evt.preventDefault();
+//     evt.target.reset();
+
+//     fetch(API_URL).then(res => {
+//         if (res.ok) return res.json();
+
+//         throw new Error('No user with such ID');
+//     })
+//     .then(data => {
+//         for (let key in data){
+//             const par = paragraph.cloneNode(true);
+//             if (key === 'address') {
+//                 par.textContent = `${key}: ${data[key].suite}, ${data[key].street}, ${data[key].city}, ${data[key].zipcode}`
+//             } else if (key === 'company') {
+//                 par.textContent = `${key}: ${data[key].name}`
+//             } else {
+//             par.textContent = `${key}: ${data[key]}`
+//             }
+//             result.append(par);
+//         }
+//         console.log(data);
+//     })
+//     .catch(err => console.log(err))
+// }
+
+
+//======================================================
+
+
