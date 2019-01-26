@@ -322,39 +322,39 @@
 //   PS: при отправке формы перезагружается страница, решите эту задачу вспомнив о том, как остановить поведение по умолчанию.
 // */
 
-// const input = document.querySelector("input");
-// const form = document.querySelector(".search-form");
-// const result = document.querySelector(".result");
+const input = document.querySelector("input");
+const form = document.querySelector(".search-form");
+const result = document.querySelector(".result");
 
-// const countryName = document.querySelector('.country__name');
-// const countryCapital = document.querySelector('.country__capital');
-// const countryCurrency = document.querySelector('.country__currency');
-// const countryFlag = document.querySelector('.flag__img');
+const countryName = document.querySelector('.country__name');
+const countryCapital = document.querySelector('.country__capital');
+const countryCurrency = document.querySelector('.country__currency');
+const countryFlag = document.querySelector('.flag__img');
 
-// const API_URL = "https://restcountries.eu/rest/v2/name/";
+const API_URL = "https://restcountries.eu/rest/v2/name/";
 
-// form.addEventListener("submit", fetchCountryData);
+form.addEventListener("submit", fetchCountryData);
 
-// /*
-//   @param {FormEvent} evt
-// */
-// function fetchCountryData(evt) {
-//     evt.preventDefault();
-//     const inputValue = input.value;
+/*
+  @param {FormEvent} evt
+*/
+function fetchCountryData(evt) {
+    evt.preventDefault();
+    const inputValue = input.value;
   
-//     fetch(`https://restcountries.eu/rest/v2/name/${inputValue}`)
-//     .then(response => response.json())
-//     .then(data =>{ 
-//         let destr = {...data[0]};
-//         countryName.textContent = `Country name: ${destr.name}`;
-//         countryCapital.textContent = `Capital: ${destr.capital}`;
-//         countryCurrency.textContent = `Main currency: ${destr.currencies[0].name}`;
-//         countryFlag.setAttribute('src', `${destr.flag}`);
-//         })
-//     .catch(err => console.log(err));
+    fetch(`https://restcountries.eu/rest/v2/name/${inputValue}`)
+    .then(response => response.json())
+    .then(data =>{ 
+        let destr = {...data[0]};
+        countryName.textContent = `Country name: ${destr.name}`;
+        countryCapital.textContent = `Capital: ${destr.capital}`;
+        countryCurrency.textContent = `Main currency: ${destr.currencies[0].name}`;
+        countryFlag.setAttribute('src', `${destr.flag}`);
+        })
+    .catch(err => console.log(err));
   
-//   evt.target.reset();
-// }
+  evt.target.reset();
+}
 
 
 //=======================================================
