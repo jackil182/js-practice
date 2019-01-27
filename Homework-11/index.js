@@ -174,10 +174,14 @@ btnReset.addEventListener('click', () => {
 function renderCards() {
     const source = document.querySelector('#filtered-list').innerHTML.trim();    
     const template = Handlebars.compile(source);
-    let qqq = filterLaptops(filter); 
-    const markup  = qqq.reduce((acc, item) => acc + template(item), '');
+    let filteredArr = filterLaptops(filter); 
+    const markup  = filteredArr.reduce((acc, item) => acc + template(item), '');
 
     result.insertAdjacentHTML('afterbegin', markup);
+
+    if(markup === '') {
+        alert('Nothing was found');
+    }
 }
 
 function filterLaptops(filter) {
