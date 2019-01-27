@@ -154,9 +154,7 @@ btnSubmit.addEventListener('click', (evt) => {
 
     console.log(filter);
 
-    filterLaptops(filter);
-
-    renderCards(checkedInputs);
+    renderCards();
 });
 
 
@@ -173,7 +171,7 @@ btnReset.addEventListener('click', () => {
 })
 
 
-function renderCards(checkedInputs) {
+function renderCards() {
     const source = document.querySelector('#filtered-list').innerHTML.trim();    
     const template = Handlebars.compile(source);
     let qqq = filterLaptops(filter); 
