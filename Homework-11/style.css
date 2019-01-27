@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+li{
+    list-style: none;
+    width: 200px;
+}
+
+img{
+    width: 200px;
+    padding: 20px;
+}
+
+button{
+    width: 100px;
+    height: 40px;
+    background-color: greenyellow;
+    border: 2px solid white;
+    border-radius: 7px;
+}
+
+.form{
+    padding: 20px;
+}
+
+.result{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.list-item{
+    width: 300px;
+    padding: 20px;
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+.list__name{
+    font-size: 20px;
+    text-align: center;
+}
+
+.list__color{
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.list__price{
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.list__date{
+    margin-top: 10px;
+}
