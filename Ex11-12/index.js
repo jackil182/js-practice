@@ -96,7 +96,7 @@ const firstname = document.getElementById("first_name");
 const lastname = document.getElementById("last_name");
 const submitBtn = document.getElementById("submit-btn");
 
-const regEx = /^[a-z]{2,10}$|^[a-z]{2,10}-?\s?[a-z]{2,10}$/gi;
+const regEx = /^[a-z]{2,10}$|^[a-z]{2,10}-?\s?[a-z]{2,10}$/i;
 
 submitBtn.addEventListener("click", (evt) => {
     evt.preventDefault();
@@ -132,10 +132,9 @@ function validate(first, last) {
         lastNameLi.innerHTML = `Your last name **${last}** is not valid`;
     }
     results.append(lastNameLi);
-
     console.log({
         'first name': regEx.test(first),
-        'last name':  regEx.test(first),
+        'last name':  regEx.test(last),
     });
 }
 

@@ -123,36 +123,29 @@ const btnReset = form.querySelector('.js-reset');
 const inputs = document.querySelectorAll('input');
 const inputsArr = Array.from(inputs);
 
-let isActive = false;
-
 let filter = { 
     size: [], 
     color: [], 
     release_date: [], 
 }
 
+form.addEventListener('click', updateFilter);
+
+function updateFilter(){
+    if(event.target.type === 'checkbox' ) {
+    let key = event.target.name;
+    let value = event.target.value;
+    
+    if (filter[key].includes(value)){
+        filter[key] = filter[key].filter(x=> x!== value)
+    } else {
+        filter[key].push(value);
+        }
+    }
+}
+
 btnSubmit.addEventListener('click', (evt) => {
     evt.preventDefault();
-
-    if (isActive) return;
-    isActive = true;
-
-    const checkedInputs = inputsArr.filter(x => x.checked);
-    checkedInputs.forEach(input => {
-        if(input.name === 'size') {
-            filter.size.push(input.defaultValue)
-        }
-
-        if(input.name === 'color') {
-            filter.color.push(input.defaultValue)
-        }
-
-        if(input.name === 'release_date') {
-            filter.release_date.push(input.defaultValue)
-        }
-    });
-
-    console.log(filter);
 
     renderCards();
 });
@@ -165,13 +158,12 @@ btnReset.addEventListener('click', () => {
         release_date: [], 
     };
 
-    isActive = false;
-
     result.innerHTML = '';
 })
 
 
 function renderCards() {
+    result.innerHTML = '';
     const source = document.querySelector('#filtered-list').innerHTML.trim();    
     const template = Handlebars.compile(source);
     let filteredArr = filterLaptops(filter); 
@@ -184,14 +176,33 @@ function renderCards() {
     }
 }
 
-function filterLaptops(filter) {
+function filterLaptops(filter) {    
+    return laptops.filter(x => 
+        filter.size.includes(String(x.size)) || filter.size.length === 0)
+        .filter(x => filter.color.includes(x.color) || filter.color.length === 0)
+        .filter(x => filter.release_date.includes(String(x.release_date)) || filter.release_date.length === 0)
+}
 
-    // console.log(filter.size);
-    
-    let zzz = [];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+let zzz = [];
     laptops.forEach(item => {
-        // console.log(item);
-
         if (filter.size.length === 0) {
             filter.color.forEach(x => {                        
                 if(item.color == x) {
@@ -201,8 +212,6 @@ function filterLaptops(filter) {
                             zzz.push(item);
                         }
                     })
-
-                    // zzz.push(item);
                 }
             })
         }
@@ -279,34 +288,13 @@ function filterLaptops(filter) {
                                 zzz.push(item);
                             }
                         })
-
-                        // zzz.push(item);
                     }
                 })
-
-                // zzz.push(item);
             }
-        })
-
-        // filter.color.forEach(x => {                        
-        //     if(item.color == x) {
-        //         zzz.push(item);
-        //     }
-        // })
-
-        // filter.release_date.forEach(x => {                        
-        //     if(item.release_date == x) {
-        //         zzz.push(item);
-        //     }
-        // })
-        
+        })  
     })
-    // console.log(zzz);
 
-    const unique = [...new Set(zzz)];
-
-    console.log(unique);
-    
+    const unique = [...new Set(zzz)]; 
     
     return unique;
-}
+*/
