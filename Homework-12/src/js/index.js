@@ -52,7 +52,7 @@ function addNote() {
     
   if (storegaData.every(x => x.url !== noteText)) {
     if (urlRegEx.test(noteText)) {      
-      fetch(`http://api.linkpreview.net/?key=5c532304d318b4f07843367da32d6a39a636c4b68bb74&q=${noteText}`).then(res => {
+      fetch(`https://api.linkpreview.net/?key=5c532304d318b4f07843367da32d6a39a636c4b68bb74&q=${noteText}`).then(res => {
         if (res.ok) return res.json();
 
         throw new Error('error', res.statusText);
