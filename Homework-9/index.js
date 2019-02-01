@@ -231,6 +231,8 @@ class Stopwatch {
 
     getFormattedTime(time) {
         let delta = new Date(time);
+        console.log(delta);
+        
         let minutes = delta.getMinutes();
         minutes < 10 ? minutes = '0' + minutes : minutes;
         let seconds = delta.getSeconds();

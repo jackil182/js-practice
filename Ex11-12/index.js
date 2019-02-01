@@ -73,68 +73,71 @@
 //========================================================
 
 
-/* 
-  Напишите функцию validate которая проверяет поля формы firstname и lastname и возвращает результат в виде обьекта со свойствами 'first name' и 'last name'.
-  Кроме того, формат объекта: в свойства записывается буль-флаг уведомляющий о статусе прохождения валидации для каждого поля.
-  {
-    'first name': true или false,
-    'last name': true или false,
-  }
+// /* 
+//   Напишите функцию validate которая проверяет поля формы firstname и lastname и возвращает результат в виде обьекта со свойствами 'first name' и 'last name'.
+//   Кроме того, формат объекта: в свойства записывается буль-флаг уведомляющий о статусе прохождения валидации для каждого поля.
+//   {
+//     'first name': true или false,
+//     'last name': true или false,
+//   }
   
-  Критерии валидации:
-  1)Имя. Допускается не более 2-х слов, разделенных пробелами или дефисом. Слова должны состоять только из букв.
-  2)Фамилия. Допускается не более 2-х слов, разделенных пробелами или дефисом. Слова должны состоять только из букв.
+//   Критерии валидации:
+//   1)Имя. Допускается не более 2-х слов, разделенных пробелами или дефисом. Слова должны состоять только из букв.
+//   2)Фамилия. Допускается не более 2-х слов, разделенных пробелами или дефисом. Слова должны состоять только из букв.
   
-  При клике на кнопку submit должна происходить проверка. Результат проверки, объект, выводить в консоль.
-*/
+//   При клике на кнопку submit должна происходить проверка. Результат проверки, объект, выводить в консоль.
+// */
 
-const form = document.querySelector('.js-form');
-const results = document.querySelector('.results');
-const item = document.createElement('li');
+// const form = document.querySelector('.js-form');
+// const results = document.querySelector('.results');
+// const item = document.createElement('li');
 
-const firstname = document.getElementById("first_name");
-const lastname = document.getElementById("last_name");
-const submitBtn = document.getElementById("submit-btn");
+// const firstname = document.getElementById("first_name");
+// const lastname = document.getElementById("last_name");
+// const submitBtn = document.getElementById("submit-btn");
 
-const regEx = /^[a-z]{2,10}$|^[a-z]{2,10}-?\s?[a-z]{2,10}$/i;
+// const regEx = /^[a-z]{2,10}$|^[a-z]{2,10}-?\s?[a-z]{2,10}$/i;
 
-submitBtn.addEventListener("click", (evt) => {
-    evt.preventDefault();
+// submitBtn.addEventListener("click", (evt) => {
+//     evt.preventDefault();
 
-    results.innerHTML = '';
-    validate(firstname.value, lastname.value);
+//     results.innerHTML = '';
+//     validate(firstname.value, lastname.value);
     
-    form.reset();
-    });
+//     form.reset();
+//     });
 
-function validate(first, last) {
-    const firstNameLi = item.cloneNode(true);
-    const lastNameLi = item.cloneNode(true);
+// function validate(first, last) {
+//     const firstNameLi = item.cloneNode(true);
+//     const lastNameLi = item.cloneNode(true);
 
-    if (regEx.test(first)) {
-        firstNameLi.classList.add('success');
-        firstNameLi.classList.remove('error');
-        firstNameLi.innerHTML = `Your name **${first}** is valid`;
-    } else {
-        firstNameLi.classList.add('error');
-        firstNameLi.classList.remove('success');
-        firstNameLi.innerHTML = `Your name **${first}** is not valid`;
-    }
-    results.append(firstNameLi);
+//     if (regEx.test(first)) {
+//         firstNameLi.classList.add('success');
+//         firstNameLi.classList.remove('error');
+//         firstNameLi.innerHTML = `Your name **${first}** is valid`;
+//     } else {
+//         firstNameLi.classList.add('error');
+//         firstNameLi.classList.remove('success');
+//         firstNameLi.innerHTML = `Your name **${first}** is not valid`;
+//     }
+//     results.append(firstNameLi);
 
-    if (regEx.test(last)) {
-        lastNameLi.classList.add('success');
-        lastNameLi.classList.remove('error');
-        lastNameLi.innerHTML = `Your last name **${last}** is valid`;
-    } else {
-        lastNameLi.classList.add('error');
-        lastNameLi.classList.remove('success');
-        lastNameLi.innerHTML = `Your last name **${last}** is not valid`;
-    }
-    results.append(lastNameLi);
-    console.log({
-        'first name': regEx.test(first),
-        'last name':  regEx.test(last),
-    });
-}
+//     if (regEx.test(last)) {
+//         lastNameLi.classList.add('success');
+//         lastNameLi.classList.remove('error');
+//         lastNameLi.innerHTML = `Your last name **${last}** is valid`;
+//     } else {
+//         lastNameLi.classList.add('error');
+//         lastNameLi.classList.remove('success');
+//         lastNameLi.innerHTML = `Your last name **${last}** is not valid`;
+//     }
+//     results.append(lastNameLi);
+//     console.log({
+//         'first name': regEx.test(first),
+//         'last name':  regEx.test(last),
+//     });
+// }
+
+
+//======================================================================================
 

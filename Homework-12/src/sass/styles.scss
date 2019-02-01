@@ -1,0 +1,74 @@
+/*
+   Import partials below
+*/
+@import './normalize';
+
+body {
+   background-color: teal;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.notes-form {
+   margin: 0 auto;
+   padding-top: 100px;
+   width: 700px;
+   display: flex;
+   justify-content: center;
+}
+
+.input-text {
+   width: 600px;
+   height: 50px;
+   border: none;
+}
+
+.btn-submit {
+   width: 100px;
+   border: none;
+}
+
+.notes-list {
+   margin: 50px auto 0;
+   padding-left: 0;
+   width: 700px;
+}
+
+.list__item {
+   margin-bottom: 10px;
+   padding: 10px;
+   border: 1px solid white;
+   list-style: none;
+   display: flex;
+   color:#222;
+   font-weight: 500;
+   background-color: beige;
+}
+
+.list__img {
+   width: 150px;
+   margin-right: 30px;
+   align-self: center;
+}
+
+.item__link:link, .item__link:visited {
+   text-decoration: none;
+   color: #444;
+}
+
+.item__link:hover {
+   font-weight: 600;
+}
+
+.item__descr {
+   width: 420px;
+}
+
+.btn-close {
+   width: 40px;
+   height: 40px;
+   background-color: white;
+   text-align: center;
+   line-height: 40px;
+   cursor: pointer;
+   margin-left: auto;
+}
