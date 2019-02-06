@@ -119,6 +119,14 @@ function playVideo({target}) {
 }
 
 function startVideo(id) {
-    youtubeVideo.innerHTML = `<iframe class="embeded-video" src=https://www.youtube.com/embed/${id} frameBorder="0" allowFullScreen>
-    </iframe>`
+    youtubeVideo.innerHTML = `<iframe class="embeded-video" src=https://www.youtube.com/embed/${id}?autoplay=1 frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen>
+    </iframe>`;
+}
+
+window.addEventListener('click', stopVideo);
+
+function stopVideo({target}){
+    if (target === youtubeVideo) return;
+
+    youtubeVideo.innerHTML = '';
 }
