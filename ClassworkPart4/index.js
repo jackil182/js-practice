@@ -72,7 +72,7 @@ const container = document.querySelector('.container');
 const list = document.querySelector('.list');
 const youtubeVideo = document.querySelector('.youtube-video');
 
-const lastFmUrl = 'http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=412e51e107155c7ffabd155a02371cbd&format=json';
+const lastFmUrl = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=412e51e107155c7ffabd155a02371cbd&format=json';
 
 const youTubeUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=AIzaSyAGwWGzULP4Q9plH7a9ATpZW_8o2ZgJOH8';
 
