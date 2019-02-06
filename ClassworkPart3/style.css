@@ -1,0 +1,240 @@
+/* @import url(https://fonts.googleapis.com/css?family=Dancing+Script:400,700);
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 250px;
+}
+
+#form {
+    text-align: center;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid grey;
+}
+.box{
+    text-align: center;
+}
+h1 {
+    margin: 0;
+    padding: 30px;
+    font-family: 'Dancing Script';
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+} */
+
+/*Navigation*/
+
+/* nav {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.93);
+    border-bottom: 1px solid grey;
+    top: 121px;
+    z-index: 1;
+    width: 100%;
+    float: left;
+    clear: both;
+    padding: 0;
+    font-size: 17px;
+}
+
+ul { */
+    /* list-style-type: none; */
+    /* font-family: lato;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    padding: 25px;
+    float: left;
+}
+
+nav a:hover {
+    color: royalblue;
+} */
+
+/*end of navigation*/
+
+/*start of gallery CSS*/
+
+/* #container > div{
+    position: relative;
+    float: left;
+    width: 33.33%;
+    height: 20vw;
+    transition: .5s linear;
+}
+
+#container > div:hover p{ */
+    /*visibility: visible;*/
+    /* opacity: 1;
+}
+
+#container > div:hover {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+#container {
+    width: 100%;
+    padding: 25px;
+    float: left;
+    margin-bottom: 50px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    transition: .3s ease-in-out;
+}
+
+img:hover { */
+    /*transform: scale(1.3);*/
+/* }
+
+p{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /*visibility: hidden;*/
+    /* opacity: 0;
+    margin: 0;
+    padding: 10px;
+    font-family: lato;
+    font-weight: 300;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    transition: .5s linear;
+} */
+
+/*Footer start*/
+
+/* footer {
+    text-align: center;
+    width: 100%;
+    margin: 15px;
+    border-top: 1px solid grey;
+    margin-top: 50px;
+    background-color: #FFFFFF;
+    clear: both;
+}
+
+footer h2 {
+    margin: 0;
+    padding: 30px;
+    font-family: 'Dancing Script';
+    font-weight: 400;
+} */
+
+/* Footer end */
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
+    font-weight: 600;
+}
+
+form {
+    padding-top: 30px;
+    width: 500px;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.btn-submit{
+    width: 145px;
+    border: none;
+    border-radius: 3px;
+    background-color: paleturquoise;
+}
+
+.btn-submit:hover {
+    background-color: aliceblue;
+}
+
+input {
+    border: 1px solid teal;
+    width: 350px;
+    height: inherit;
+    box-shadow: 0 0 2px 1px teal;
+    border-radius: 3px;
+    border: none;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.buttons {
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+button {
+    border: none;
+    width: 150px;
+    height: 40px;
+    box-shadow: 0 0 2px 1px teal;
+    border-radius: 3px;
+    background-color: paleturquoise;
+    font-size: 20px;
+
+}
+
+button:hover {
+    background-color: aliceblue;
+}
+
+.list {
+    padding: 0;
+    background-color: paleturquoise;
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 2px solid teal;
+}
+
+li:hover {
+    background-color: aliceblue;
+}
+
+span {
+    display: block;
+    padding: 10px;
+}
+
+.text {
+    width: 200px;
+}

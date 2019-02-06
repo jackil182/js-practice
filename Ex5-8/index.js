@@ -1060,21 +1060,42 @@
 //     });
 // }
 
+// const val = document.querySelector('.value');
+// const btnSub = document.querySelector('[data-action=sub]');
+// const btnAdd = document.querySelector('[data-action=add]');
+
+
 // class Counter {
 //     constructor(onChange){
-//         this.value = val.textContent; 
+//         this.value = 0; 
+//         this.onChange = onChange;
+//         onChange(this.value);
+//         this.increment = this.increment.bind(this);
+//         this.decrement = this.decrement.bind(this);
 //     }
 
-//     // increment(event) {
-//     //     this.value++;
-//     // }
+//     increment() {
+//         this.value++;
+//         this.onChange(this.value)
 
-//     // decrement() {
-//     //     this.value--;
-//     // }
+//         //second method
+//         //this.onChange(++this.value) 
+//     }
+
+//     decrement() {
+//         this.value--;
+//         this.onChange(this.value);
+//     }
 // }
 
-// const a = new Counter(onChange());
+// const counter = new Counter(updateCounter);
+
+// function updateCounter(value) {
+//     val.textContent = value;
+// }
+
+// btnSub.addEventListener('click', counter.decrement);
+// btnAdd.addEventListener('click', counter.increment);
 
 
 //===========================================================
