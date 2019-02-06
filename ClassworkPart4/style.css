@@ -183,23 +183,44 @@
 
 
 
+::-webkit-scrollbar { width: 7px; height: 3px;}
+::-webkit-scrollbar-track {  background-color: lightcoral;}
+::-webkit-scrollbar-track-piece { background-color: #555;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: lightcoral; border-radius: 5px;}
+::-webkit-scrollbar-corner { background-color: #555;}
+::-webkit-resizer { background-color: lightcoral}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+
 body {
+  background-image: url(./music-instruments-2887457_1920.jpg);
+  background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
   color: #eee;
+}
+
+
+.container {
+  padding-top: 20px;
 }
 
 .list {
   margin: 0 auto;
   width: 500px;
+  height: 490px;
   padding: 10px;
+  overflow-y: scroll;
+  box-shadow: 0 10px 50px 10px #ddd;
+  border-radius: 10px;
 }
 
 .track {
   margin-top: 5px;
   padding: 15px 5px;
   list-style: none;
-  /* height: 40px; */
-  display: flex;
+    display: flex;
   justify-content: space-between;
   background-color: lightcoral;
   border-radius: 5px;
@@ -219,8 +240,47 @@ body {
   align-self: center;
 }
 
-a:visited, a:link {
-  text-decoration: none;
+.youtube-btn { 
+  background: steelblue;
+  border-radius: 50% / 10%;
+  color: #FFFFFF;
+  font-size: .7em; /* change this to change size */
+  height: 2.5em;
+  margin-right: 5px;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-indent: 0.1em;
+  transition: all 150ms ease-out;
+  width: 3.5em;
+}
+
+.youtube-btn:hover {
+  background: darkorange;
+}
+
+.youtube-btn::before { 
+  background: inherit;
+  border-radius: 5% / 50%;
+  bottom: 9%;
+  content: "";
+  left: -5%;
+  position: absolute;
+  right: -5%;
+  top: 9%;
+}
+
+.youtube-btn::after {
+  border-style: solid;
+  border-width: 1em 0 1em 1.732em;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+  content: ' ';
+  font-size: 0.75em;
+  height: 0;
+  margin: -1em 0 0 -0.75em;
+  top: 50%;
+  position: absolute;
+  width: 0;
 }
 
 .youtube-video {
@@ -231,6 +291,6 @@ a:visited, a:link {
 }
 
 .embeded-video {
-  width: 450px;
+  width: 490px;
   height: 300px;
 }

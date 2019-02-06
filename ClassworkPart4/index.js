@@ -92,7 +92,7 @@ function renderList(arr) {
     <img class="artist-img" src="${item.image[0]['#text']}">
     <span class="artist-name">${item.artist.name}</span>
     <span class="track-name">${item.name}</span>
-    <button class="youtube-link">Video</button>
+    <div class="youtube-btn"></div>
 </li>`, '');
 }
 
@@ -100,7 +100,7 @@ function renderList(arr) {
 list.addEventListener('click', playVideo);
 
 function playVideo({target}) {
-    if(target.textContent !== 'Video') return;
+    if(!target.classList.contains('youtube-btn')) return;
     
     const songName = target.previousElementSibling.textContent;
     const artistName = target.previousElementSibling.previousElementSibling.textContent;
