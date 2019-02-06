@@ -69,12 +69,40 @@
 
 
 const container = document.querySelector('.container');
+const form = document.querySelector('.form');
+const input = form.querySelector('input[type="text"');
+console.log(input);
+
 const list = document.querySelector('.list');
 const youtubeVideo = document.querySelector('.youtube-video');
 
 const lastFmUrl = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=412e51e107155c7ffabd155a02371cbd&format=json';
-
 const youTubeUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=AIzaSyAGwWGzULP4Q9plH7a9ATpZW_8o2ZgJOH8';
+
+
+form.addEventListener('submit', findTrack);
+
+function findTrack(e) {
+    e.preventDefault();
+
+    const val = input.value;
+
+    fetch(lastFmUrl)
+        .then(res => res.json())
+        .then(data => {
+        const tracksArr = data.tracks.track;
+        if(!val) {
+            renderList(tracksArr);
+        } else {
+            const filteredTrack = tracksArr.filter(x => x.artist.name.toLowerCase() === val.toLowerCase() || x.name.toLowerCase() === val.toLowerCase());
+            renderList(filteredTrack);
+        }
+    })
+    .catch(err => console.log(err));
+
+
+    form.reset();
+}
 
 fetch(lastFmUrl)
     .then(res => res.json())

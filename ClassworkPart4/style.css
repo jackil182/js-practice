@@ -183,11 +183,11 @@
 
 
 
-::-webkit-scrollbar { width: 7px; height: 3px;}
+::-webkit-scrollbar { width: 5px; height: 30px;}
 ::-webkit-scrollbar-track {  background-color: lightcoral;}
-::-webkit-scrollbar-track-piece { background-color: #555;}
-::-webkit-scrollbar-thumb { height: 50px; background-color: lightcoral; border-radius: 5px;}
-::-webkit-scrollbar-corner { background-color: #555;}
+::-webkit-scrollbar-track-piece { background-color: rgb(84, 135, 168);}
+::-webkit-scrollbar-thumb { height: 50px; background-color: lightcoral; border-radius: 0px;}
+::-webkit-scrollbar-corner { background-color: rgb(84, 135, 168);}
 ::-webkit-resizer { background-color: lightcoral}
 
 *, *:before, *:after {
@@ -203,24 +203,74 @@ body {
 
 
 .container {
-  padding-top: 20px;
+  padding-top: 10px;
+  margin-left: 50%;
 }
 
-.list {
+.form {
+  position: relative;
+  max-width: 500px;
   margin: 0 auto;
+  display: flex;
+  border-bottom: 2px solid #1976D2;
+ }
+ 
+ .form .search-input {
+  border: 0;
+  width: 75%;
+  font-size: 30px;
+  line-height: 35px;
+  height: 70px;
+  text-align: center;
+  padding: 10px;
+  background: transparent;
+ }
+ 
+ .form .search-input:focus {
+  outline: 0;
+   color: inherit;
+ }
+ 
+ .form .search-input::placeholder {
+  color: #1976D2;
+ }
+
+ .btn-submit {
+   width: 25%;
+   padding: 0 5px;
+   color: #eee;
+   font-size: 30px;
+   line-height: 35px;
+   background: transparent;
+   /* background: linear-gradient(to right, transparent 0%,rgba(83, 241, 233, 0.384) 80%, rgba(57, 180, 174, 0.582) 100%); */
+   border: 0;
+   border: 2px solid transparent;
+   /* border-top: none; */
+   border-radius: 10px;
+ }
+
+ .btn-submit:hover {
+   border: 2px solid #eee ;
+ }
+
+
+.list {
+  margin: 10px auto 0;
   width: 500px;
-  height: 490px;
+  height: 480px;
   padding: 10px;
   overflow-y: scroll;
-  box-shadow: 0 10px 50px 10px #ddd;
-  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 7px 2px rgba(23,107,107,1);
+  -moz-box-shadow: 0px 2px 7px 2px rgba(23,107,107,1);
+  box-shadow: 0px 2px 7px 2px rgba(23,107,107,1);
+  border-radius: 7px;
 }
 
 .track {
   margin-top: 5px;
   padding: 15px 5px;
   list-style: none;
-    display: flex;
+  display: flex;
   justify-content: space-between;
   background-color: lightcoral;
   border-radius: 5px;
