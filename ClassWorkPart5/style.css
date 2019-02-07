@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    background-image: url(https://cdn.pixabay.com/photo/2015/05/31/15/07/business-792113_1280.jpg);
+    color: #eee;
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #eee;
+    box-shadow: 0 2px 5px 2px rgb(241, 241, 238);
+    text-transform: capitalize;
+    background-color: rgba(54, 54, 54, 0.92);
+    border-radius: 4px;
+}
+
+.container::before{
+    display: block;
+    content: "";
+    height: 2px;
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgb(222, 248, 75);
+    position: relative;
+    top: 90px;
+    z-index: 1;
+}
+
+.image {
+    position: relative;
+    margin-top: 20px;
+    border-radius: 100px;
+    padding: 5px;
+    border: 2px solid rgb(222, 248, 75);
+    z-index: 10;
+    background-color: #eee;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.info {
+    margin-top: 15px;
+    font-weight: normal;
+    color: rgb(222, 248, 75);
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.icons__item {
+    margin-top: 15px;
+    width: 50px;
+    height: 50px;
+    list-style: none;    
+    background-image: url(./card_icons.png);
+    background-repeat: no-repeat;
+    background-size: 350px;
+}
+
+.icons__item:first-child{
+    background-position: 0 -50px;
+    transition: .3s all;
+}
+
+.icons__item:nth-child(2){
+    background-position: -60px -50px;
+    transition: .3s all;
+}
+
+.icons__item:nth-child(3){
+    background-position: -120px -50px;
+    transition: .3s all;
+}
+
+.icons__item:nth-child(4){
+    background-position: -180px -50px;
+    transition: .3s all;
+}
+
+.icons__item:nth-child(5){
+    background-position: -240px -50px;
+    transition: .3s all;
+}
+
+.icons__item:nth-child(6){
+    background-position: -300px -50px;
+    transition: .3s all;
+}
+
+.icons__item:first-child:hover,
+.icons__item:nth-child(2):hover,
+.icons__item:nth-child(3):hover,
+.icons__item:nth-child(4):hover,
+.icons__item:nth-child(5):hover,
+.icons__item:nth-child(6):hover {
+    background-position-y: 0;
+    transition: .3s all;
+}
+
+.active {
+    background-position: 0 0 !important;
+    transition: .3s all;
+}

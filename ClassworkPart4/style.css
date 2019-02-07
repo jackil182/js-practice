@@ -223,6 +223,7 @@ body {
   -moz-box-shadow: 0px 2px 7px 2px rgba(23,107,107,1);
   box-shadow: 0px 2px 7px 2px rgba(23,107,107,1);
   border-radius: 7px;
+  background-color: rgba(0, 255, 255, 0.418);
 }
 
 .chart {
@@ -297,6 +298,7 @@ body {
   -moz-box-shadow: 0px 2px 7px 2px rgba(23,107,107,1);
   box-shadow: 0px 2px 7px 2px rgba(23,107,107,1);
   border-radius: 7px;
+  background-color: rgba(0, 255, 255, 0.418);
 }
 
 .track {
