@@ -78,8 +78,8 @@ const favForm = document.querySelector('.fav-form');
 const list = document.querySelector('.list');
 const youtubeVideo = document.querySelector('.youtube-video');
 
-const lastFmUrl = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&limit=200&api_key=412e51e107155c7ffabd155a02371cbd&format=json';
-const youTubeUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=AIzaSyAGwWGzULP4Q9plH7a9ATpZW_8o2ZgJOH8';
+const lastFmUrl = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=412e51e107155c7ffabd155a02371cbd&format=json&perPage=100';
+const youTubeUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=AIzaSyAGwWGzULP4Q9plH7a9ATpZW_8o2ZgJOH8&type=video';
 
 
 favForm.addEventListener('submit', handleFormSubmit);
@@ -134,22 +134,27 @@ function renderList(arr) {
 
 list.addEventListener('click', handleBtnClick);
 
-function handleBtnClick({target}) {
+function getVideo(target) {
     if(target.classList.contains('youtube-btn')) {
+        const songName = target.previousElementSibling.previousElementSibling.textContent;
+        const artistName = target.previousElementSibling.previousElementSibling.textContent;
+        const q = `&q=${songName} ${artistName}`;
     
-    const songName = target.previousElementSibling.textContent;
-    const artistName = target.previousElementSibling.previousElementSibling.textContent;
-    const q = `&q=${songName} ${artistName}`
-    
-    fetch(youTubeUrl+q)
+        const link = youTubeUrl+q;
+        
+        fetch(link)
         .then(res => res.json())
         .then(data => {
             const videoID = data.items[0].id.videoId;
-            
+            console.log(videoID)
             startVideo(videoID);
         })
         .catch(err => console.log(err));
     }
+}
+
+function handleBtnClick({target}) {
+    getVideo(target)
 
     if(target.hasAttribute('data-name')) {
         let item = target.closest('li').innerHTML;
@@ -200,19 +205,5 @@ function removeTrack({target}) {
         localStorage.setItem('tracks', JSON.stringify(storageData));
     }
 
-    if(target.classList.contains('youtube-btn')) {
-    
-        const songName = target.previousElementSibling.textContent;
-        const artistName = target.previousElementSibling.previousElementSibling.textContent;
-        const q = `&q=${songName} ${artistName}`
-        
-        fetch(youTubeUrl+q)
-            .then(res => res.json())
-            .then(data => {
-                const videoID = data.items[0].id.videoId;
-                
-                startVideo(videoID);
-            })
-            .catch(err => console.log(err));
-        }
+    getVideo(target);
 }
