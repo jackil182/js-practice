@@ -74,6 +74,7 @@ const form = document.querySelector('.form');
 const input = form.querySelector('#input');
 
 const favForm = document.querySelector('.fav-form');
+const favInput = favForm.querySelector('#input-fav');
 
 const list = document.querySelector('.list');
 const youtubeVideo = document.querySelector('.youtube-video');
@@ -87,12 +88,20 @@ function handleFormSubmit(e) {
     e.preventDefault();
 }
 
+favForm.addEventListener('input', findFavTrack);
+function findFavTrack() {
+    const val = favInput.value;
+    const tracksArr = JSON.parse(localStorage.getItem('tracks'));
+    const filteredTrack = tracksArr.filter(x => x.toLowerCase().includes(val.toLowerCase()) || x.toLowerCase().includes(val.toLowerCase()));
+    favList.innerHTML = filteredTrack.join('');
+    console.log(filteredTrack);
+    
+}
+
 form.addEventListener('submit', handleFormSubmit);
 form.addEventListener('input', findTrack);
 
-function findTrack(e) {
-    e.preventDefault();
-
+function findTrack() {
     const val = input.value;
 
     fetch(lastFmUrl)
@@ -107,8 +116,6 @@ function findTrack(e) {
         }
     })
     .catch(err => console.log(err));
-
-    // form.reset();
 }
 
 fetch(lastFmUrl)
