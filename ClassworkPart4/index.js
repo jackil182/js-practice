@@ -68,19 +68,27 @@
 
 
 
-const container = document.querySelector('.container');
+const favList = document.querySelector('.fav-list');
+const chart = document.querySelector('.chart');
 const form = document.querySelector('.form');
-const input = form.querySelector('input[type="text"');
-console.log(input);
+const input = form.querySelector('#input');
+
+const favForm = document.querySelector('.fav-form');
 
 const list = document.querySelector('.list');
 const youtubeVideo = document.querySelector('.youtube-video');
 
-const lastFmUrl = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=412e51e107155c7ffabd155a02371cbd&format=json';
+const lastFmUrl = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&limit=200&api_key=412e51e107155c7ffabd155a02371cbd&format=json';
 const youTubeUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=AIzaSyAGwWGzULP4Q9plH7a9ATpZW_8o2ZgJOH8';
 
 
-form.addEventListener('submit', findTrack);
+favForm.addEventListener('submit', handleFormSubmit);
+function handleFormSubmit(e) {
+    e.preventDefault();
+}
+
+form.addEventListener('submit', handleFormSubmit);
+form.addEventListener('input', findTrack);
 
 function findTrack(e) {
     e.preventDefault();
@@ -94,14 +102,13 @@ function findTrack(e) {
         if(!val) {
             renderList(tracksArr);
         } else {
-            const filteredTrack = tracksArr.filter(x => x.artist.name.toLowerCase() === val.toLowerCase() || x.name.toLowerCase() === val.toLowerCase());
+            const filteredTrack = tracksArr.filter(x => x.artist.name.toLowerCase().startsWith(val.toLowerCase()) || x.name.toLowerCase().startsWith(val.toLowerCase()));
             renderList(filteredTrack);
         }
     })
     .catch(err => console.log(err));
 
-
-    form.reset();
+    // form.reset();
 }
 
 fetch(lastFmUrl)
@@ -110,7 +117,6 @@ fetch(lastFmUrl)
         const tracksArr = data.tracks.track;
 
         renderList(tracksArr);
-        console.log(tracksArr)
     })
     .catch(err => console.log(err));
 
@@ -120,21 +126,20 @@ function renderList(arr) {
     <img class="artist-img" src="${item.image[0]['#text']}">
     <span class="artist-name">${item.artist.name}</span>
     <span class="track-name">${item.name}</span>
+    <div class="favourites-btn" data-name="fav-btn"><i class="fav-btn" data-name="fav-btn"></i><span class="liked" data-name="fav-btn">Added to favourites</span></div>
     <div class="youtube-btn"></div>
 </li>`, '');
 }
 
 
-list.addEventListener('click', playVideo);
+list.addEventListener('click', handleBtnClick);
 
-function playVideo({target}) {
-    if(!target.classList.contains('youtube-btn')) return;
+function handleBtnClick({target}) {
+    if(target.classList.contains('youtube-btn')) {
     
     const songName = target.previousElementSibling.textContent;
     const artistName = target.previousElementSibling.previousElementSibling.textContent;
     const q = `&q=${songName} ${artistName}`
-
-    console.log(youTubeUrl+q);
     
     fetch(youTubeUrl+q)
         .then(res => res.json())
@@ -143,7 +148,21 @@ function playVideo({target}) {
             
             startVideo(videoID);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
+    }
+
+    if(target.hasAttribute('data-name')) {
+        let item = target.closest('li').innerHTML;
+        item = `<li class="track">${item}</li>`
+        let storageData = JSON.parse(localStorage.getItem('tracks')) || [];
+        storageData.includes(item) ? storageData : storageData.push(item);
+        localStorage.setItem('tracks', JSON.stringify(storageData));
+        renderFavourites();
+    }
+}
+
+function addFavouriteTrack(item) {
+    favList.innerHTML = item + favList.innerHTML;
 }
 
 function startVideo(id) {
@@ -157,4 +176,43 @@ function stopVideo({target}){
     if (target === youtubeVideo) return;
 
     youtubeVideo.innerHTML = '';
+}
+
+window.addEventListener('DOMContentLoaded', renderFavourites);
+
+function renderFavourites() {
+    let storageData = JSON.parse(localStorage.getItem('tracks')) || [];
+    storageData = storageData.map(elem => elem = elem.replace('class="fav-btn"', 'class="fas fa-times-circle"'));    
+
+    favList.innerHTML = storageData.join('');
+}
+
+favList.addEventListener('click', removeTrack);
+function removeTrack({target}) {
+    if (target.classList.contains('fas')) {
+        const parent = target.closest('li');
+        parent.remove();
+
+        const uniqueId = parent.innerHTML.substr(34, 80);
+
+        let storageData = JSON.parse(localStorage.getItem('tracks'));
+        storageData = storageData.filter(el => !el.includes(uniqueId));
+        localStorage.setItem('tracks', JSON.stringify(storageData));
+    }
+
+    if(target.classList.contains('youtube-btn')) {
+    
+        const songName = target.previousElementSibling.textContent;
+        const artistName = target.previousElementSibling.previousElementSibling.textContent;
+        const q = `&q=${songName} ${artistName}`
+        
+        fetch(youTubeUrl+q)
+            .then(res => res.json())
+            .then(data => {
+                const videoID = data.items[0].id.videoId;
+                
+                startVideo(videoID);
+            })
+            .catch(err => console.log(err));
+        }
 }

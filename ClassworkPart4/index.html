@@ -22,25 +22,35 @@
 
 
 
-
     <div class="container">
-        <form action="" class="form">
-            <input type="text" name="" id="" class="search-input" placeholder="Enter Track or Artist Name">
-            <input type="submit" value="Search" class="btn-submit">
-        </form>
+        <div class="favourites">
+            <h2 class="title">My Favourite Tracks</h2>
+            <form action="" class="fav-form">
+                <input type="text" name="" id="" class="search-input" placeholder="Enter Track or Artist Name">
+                <input type="submit" value="Search" class="btn-submit">
+            </form>
+            <ul class="fav-list"></ul>
+        </div>
 
-        <ul class="list">
-            <li class="track">
-                <!-- <img class="artist-img">
-                <span class="artist-name"></span>
-                <span class="track-name"></span>
-                <button><a href="" class="youtube-link"></a></button>
+        <div class="chart">
+            <h2 class="title">LastFM Top 50 Chart</h2>
+            <form action="" class="form">
+                <input type="text" name="" id="input" class="search-input" placeholder="Enter Track or Artist Name">
+                <input type="submit" value="Search" class="btn-submit">
+            </form>
 
-            </li> -->
-        </ul>
-        <div class="youtube-video"></div>
+            <ul class="list">
+                <li class="track">
+                    <!-- <img class="artist-img">
+                    <span class="artist-name"></span>
+                    <span class="track-name"></span>
+                    <button><a href="" class="youtube-link"></a></button>
+
+                </li> -->
+            </ul>
+            <div class="youtube-video"></div>
+        </div>
     </div>
-
 
     <script src="index.js"></script>
 </body>
