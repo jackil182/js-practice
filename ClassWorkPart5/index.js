@@ -38,10 +38,10 @@ function getUser() {
     .then(obj => {
         const icons = document.querySelector('.icons');
         icons.addEventListener('mouseover', () => {
-            renderInfo(obj,true)
+            renderInfo(obj, true)
         });
-        if(!document.querySelector('.info').textContent){
-        renderInfo(obj,false)
+        if(document.querySelector('.info').textContent === ""){
+        renderInfo(obj, false)
         }
     })
     .catch(err => console.log(err));

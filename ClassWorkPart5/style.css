@@ -4,6 +4,7 @@
 }
 
 body{
+    padding: 0 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
     background-image: url(https://cdn.pixabay.com/photo/2015/05/31/15/07/business-792113_1280.jpg);
@@ -11,7 +12,8 @@ body{
 }
 
 .container {
-    width: 600px;
+    min-width: 350px;
+    max-width: 600px;
     margin: 0 auto;
     margin-top: 40px;
     padding: 10px;
