@@ -40,6 +40,7 @@ function getUser() {
         icons.addEventListener('mouseover', () => {
             renderInfo(obj, true)
         });
+        // next IF is neccessary to pass DOMContentLoaded event to function
         if(document.querySelector('.info').textContent === ""){
         renderInfo(obj, false)
         }
